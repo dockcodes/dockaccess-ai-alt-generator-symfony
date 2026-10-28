@@ -1,0 +1,61 @@
+{
+    "name": "dockcodes/dockaccess-alt-generator-symfony",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle for the dockaccess.org AI alt text generator: connection to the account, a service, a validation constraint, a Messenger handler and console commands.",
+    "keywords": ["symfony", "symfony-bundle", "accessibility", "alt text", "wcag", "dockaccess", "image", "ai"],
+    "homepage": "https://dockaccess.org",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dock",
+            "homepage": "https://dock.eu"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "dockcodes/dockaccess-alt-generator": "^1.1",
+        "psr/cache": "^2.0|^3.0",
+        "psr/log": "^2.0|^3.0",
+        "symfony/config": "^6.4|^7.4|^8.0",
+        "symfony/console": "^6.4|^7.4|^8.0",
+        "symfony/dependency-injection": "^6.4|^7.4|^8.0",
+        "symfony/event-dispatcher": "^6.4|^7.4|^8.0",
+        "symfony/http-foundation": "^6.4|^7.4|^8.0",
+        "symfony/http-kernel": "^6.4|^7.4|^8.0"
+    },
+    "require-dev": {
+        "league/flysystem": "^3.0",
+        "league/flysystem-memory": "^3.0",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.0|^12.0",
+        "symfony/framework-bundle": "^6.4|^7.4|^8.0",
+        "symfony/messenger": "^6.4|^7.4|^8.0",
+        "symfony/translation": "^6.4|^7.4|^8.0",
+        "symfony/validator": "^6.4|^7.4|^8.0"
+    },
+    "suggest": {
+        "ext-gd": "Re-encodes every image before upload (pixels only: no metadata, no appended data) and scales it down.",
+        "league/flysystem": "Generate alt text for files on any Flysystem storage (S3, ...)",
+        "symfony/messenger": "Generate alt text in the background (GenerateAltText message)",
+        "symfony/validator": "The GenuineImage constraint for uploads"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dock\\AltGenerator\\Symfony\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dock\\AltGenerator\\Symfony\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --memory-limit=512M"
+    }
+}
